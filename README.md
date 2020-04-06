@@ -65,4 +65,6 @@ npm install pg
 - Named statements
 
 # Eslint
-ESLint is a tool for identifying and reporting on patterns found in JavaScript code.
+ESLint is a tool for identifying and reporting on patterns found in JavaScript code. 
+## Command
+npm run lint
