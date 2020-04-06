@@ -1,6 +1,6 @@
 const express = require("express");
 var router = express.Router();
-const db = require("../src/employee");
+const db = require("../controller/employee");
 var exphbs  = require('express-handlebars');
 // Auto-generated swagger-ui generated from express based on a swagger.json file
 const swaggerUi = require('swagger-ui-express');
