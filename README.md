@@ -1,11 +1,15 @@
-# Node API demo with Swagger, Mocha and Postgres
+# Node API demo with Swagger, Mocha and Postgres/MSSQL
 
 Created application of Node API using below modules:
 
   - Express framework
   - Swagger UI
   - Mocha
-  - Postgres database
+  - Postgres/MSSQL database
+  - Eslint
+
+# To run the application
+npm start
 
 # Express Framework
 Express is a flexible Node.js web application framework that provides a robust set of features for web applications.
@@ -59,3 +63,6 @@ npm install pg
 - Connection pooling
 - Parameterized queries
 - Named statements
+
+# Eslint
+ESLint is a tool for identifying and reporting on patterns found in JavaScript code.
