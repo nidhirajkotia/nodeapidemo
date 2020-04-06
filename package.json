@@ -1,0 +1,24 @@
+{
+  "name": "nodeapidemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "mocha mocha/test.js && node index.js",
+    "lint": "eslint \"**/*.{js}\""
+  },
+  "keywords": [],
+  "author": "Nidhi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.3",
+    "mssql": "6.2.0",
+    "pg": "^7.18.2",
+    "swagger": "^0.7.5",
+    "swagger-ui-express": "^4.1.3"
+  }
+}

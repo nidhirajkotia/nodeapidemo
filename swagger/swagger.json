@@ -1,0 +1,35 @@
+{
+   "swagger": "2.0",
+   "info": {
+     "title": "Node API with Swagger Demo",
+     "description": "Below is the demo of Node API using Swagger and Postgres database",
+     "version": "1.0"
+   },
+   "produces": ["application/json"],
+   "paths": {
+     "/AddEmployee": {
+       "post": {
+         "x-swagger-router-controller": "addemployee",
+         "operationId": "index",
+         "tags": ["/addemployee"],
+         "description": "",
+         "parameters": [
+       { "name": "Emp_Firstname", "in": "formData", "required": true, "type": "string" },
+       { "name": "Emp_Lastname", "in": "formData", "type": "string", "required": "true" },
+      { "name": "Emp_Email", "in": "formData", "type": "string", "required": "true" },
+       { "name": "Emp_Gender", "in": "formData", "type": "string","enum":["Male","Female"], "required": "true" }], 
+         "responses": {}
+       }
+     },
+   "/EmployeeList": {
+		"get": {
+      "x-swagger-router-controller": "employeelist",
+		  "operationId": "impossible",
+		  "tags": ["/employeelist"],
+		  "description": "",
+		  "parameters": [],
+		  "responses": {}
+		}
+	  }    
+   }
+}
