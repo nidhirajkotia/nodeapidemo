@@ -2,7 +2,7 @@
 var express = require("express");
 
 // Handlebars view engine for express
-var exphbs  = require('express-handlebars');
+var exphbs = require('express-handlebars');
 
 // Create a new express application
 var app = express();
@@ -14,7 +14,7 @@ var body_parser = require("body-parser");
 require('dotenv');
 const route = require("./routes/route");
 
-const path = require('path') 
+const path = require('path')
 // Parses the text as URL encoded data and exposes the resulting object on req. body
 app.use(body_parser.urlencoded({
     extended: true
@@ -39,4 +39,5 @@ var port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log("Express running");
 });
-module.exports = app; // for testing
+
+module.export = app; // For testing
