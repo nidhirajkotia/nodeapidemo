@@ -18,9 +18,11 @@ describe('employee', () => {
   */
   describe('/GET employee', () => {
       it('it should GET all the employee', (done) => {
+        console.log(server)
         chai.request(server)
             .get('/employeelist')
             .end((err, res) => {
+                  console.log(res);
                   res.should.have.status(200);
                   res.body.should.be.a('array');
                   res.body.length.should.be.eql(0);
