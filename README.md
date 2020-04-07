@@ -11,15 +11,25 @@ Created application of Node API using below modules:
 # Steps to run the application
 
 - Click on the URL: https://node-apidemo.herokuapp.com/, You will see a message "Welcome to Home page !!"
-- Click on the URL: https://node-apidemo.herokuapp.com/employeeapi/, You will see two routes '/addemployee' and '/employeelist'
+- Click on the URL: https://node-apidemo.herokuapp.com/employeeapi/, You will see 3 routes '/create_employee', 'view_employee' and 'delete_employee'
 
-- Click on /addemployee and then on 'Try it out' button
-- You will see different fields. Fill those entries and click on 'Execute' button.
+##### create_employee
+- Click on '/create_employee' route and then on 'Try it out' button
+- You will see different fields such as emp_firstname, emp_lastname, emp_email and emp_gender. Fill those entries and click on 'Execute' button.
 - In the response section, you will see a message "Employee added successfully".
 
-- To see all the employees, click on second route '/employeelist' and then on 'Try it out' button.
+##### view_employee
+- To view all the employees, click on second route '/view_employee' and then on 'Try it out' button.
 - Click on 'Execute' button.
-- In the response section, you will see the list of employees from the database.
+- In the response section, you will see the list of all employees from the database.
+ 
+##### delete_employee
+- To delete employee based on ID, click on third route '/delete_employee' and then on 'Try it out' button.
+- Enter the ID to be deleted from database and click on 'Execute' button
+- In the response section, you will a message "Employee deleted successfully".
+
+#### To run the application locally
+npm start
 
 # Express Framework
 Express is a flexible Node.js web application framework that provides a robust set of features for web applications.
@@ -38,8 +48,9 @@ root <br />
 └── swagger <br />
 &nbsp;&nbsp;&nbsp;&nbsp;└──   swagger.js <br />
 └── mocha <br />
-&nbsp;&nbsp;&nbsp;&nbsp;└──  test.js <br />
+&nbsp;&nbsp;&nbsp;&nbsp;└──  employeetest.js <br />
 └──  index.js <br />
+└──  .env <br />
 └──  eslintrc <br />
 └──  package.json <br />
 └──  README.md <br />
