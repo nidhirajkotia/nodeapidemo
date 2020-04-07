@@ -8,7 +8,7 @@ var exphbs  = require('express-handlebars');
 var app = express();
 
 // Parse incoming request bodies (req.body)
-var bodyParser = require("body-parser");
+var body_parser = require("body-parser");
 
 // Loads environment variables from a .env file into process.env
 require('dotenv');
@@ -16,12 +16,12 @@ const route = require("./routes/route");
 
 const path = require('path') 
 // Parses the text as URL encoded data and exposes the resulting object on req. body
-app.use(bodyParser.urlencoded({
+app.use(body_parser.urlencoded({
     extended: true
 }));
 
 // Returns middleware that only parses json
-app.use(bodyParser.json())
+app.use(body_parser.json())
 
 // Mount middleware for all routes of the app
 app.use(route);
