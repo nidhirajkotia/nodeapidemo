@@ -40,4 +40,4 @@ app.listen(port, function() {
     console.log("Express running");
 });
 
-module.export = app; // For testing
+module.exports= app; // For testing
