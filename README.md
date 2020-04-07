@@ -8,8 +8,18 @@ Created application of Node API using below modules:
   - Postgres/MSSQL database
   - Eslint
 
-# To run the application
-npm start
+# Steps to run the application
+
+- Click on the URL: https://node-apidemo.herokuapp.com/, You will see a message "Welcome to Home page !!"
+- Click on the URL: https://node-apidemo.herokuapp.com/employeeapi/, You will see two routes '/addemployee' and '/employeelist'
+
+- Click on /addemployee and then on 'Try it out' button
+- You will see different fields. Fill those entries and click on 'Execute' button.
+- In the response section, you will see a message "Employee added successfully".
+
+- To see all the employees, click on second route '/employeelist' and then on 'Try it out' button.
+- Click on 'Execute' button.
+- In the response section, you will see the list of employees from the database.
 
 # Express Framework
 Express is a flexible Node.js web application framework that provides a robust set of features for web applications.
