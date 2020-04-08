@@ -11,7 +11,7 @@ Created application of Node API using below modules:
 # Steps to run the application
 
 - Click on the URL: https://node-apidemo.herokuapp.com/, You will see a message "Welcome to Home page !!"
-- Click on the URL: https://node-apidemo.herokuapp.com/employeeapi/, You will see 3 routes '/create_employee', 'view_employee' and 'delete_employee'
+- Click on the URL: https://node-apidemo.herokuapp.com/employeeapi/, You will see 3 routes '/create_employee', '/view_employee' and '/delete_employee'
 
 ##### create_employee
 - Click on '/create_employee' route and then on 'Try it out' button
@@ -72,6 +72,10 @@ const swaggerUi = require('swagger-ui-express');
 
 # Mocha
 Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases.
+Used mocha to test below:
+- GET /view_employee route
+- Check 'package.json' file
+- Check 'swagger.json' file
 
 # Postgres
 node-postgres is a collection of node.js modules for interfacing with PostgreSQL database.
