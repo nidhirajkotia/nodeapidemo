@@ -15,7 +15,7 @@ const pool = new Pool({
 
 module.exports = {
 
-    // Method to add employee in db
+    // Method to add employee using promise in db
     add: (req, res) => {
         const {
             emp_firstname,
@@ -33,7 +33,7 @@ module.exports = {
             })
     },
 
-    // Method to fetch all the employess from db
+    // Method to fetch all the employess using promise from db
     list: (req, res) => {
         // Run a single query on the database
 
@@ -44,12 +44,10 @@ module.exports = {
                     console.log(err);
                     res.status(408).send("Error while fetching employee");
                 }
-
             )
-
     },
 
-    // Method to delete employee in db
+    // Method to delete employee using promise in db
     delete: (req, res) => {
         const {
             emp_id
@@ -62,6 +60,5 @@ module.exports = {
                 console.log(err);
                 res.status(408).send("Error while deleting employee");
             })
-
     }
 };
