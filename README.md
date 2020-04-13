@@ -103,6 +103,7 @@ const circuitBreaker = require('opossum');
 `
 <br/>
 `
-const option = {
+const options = {
+    timeout : 3000
 }
 `
