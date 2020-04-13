@@ -7,6 +7,7 @@ Created application of Node API using below modules:
   - Mocha
   - Postgres/MSSQL database
   - Eslint
+  - Circuit Breaker
 
 # Steps to run the application
 
