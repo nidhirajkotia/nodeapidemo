@@ -100,12 +100,12 @@ The Circuit Breaker helps the application to manage failures proactively, failin
 
 `
 const circuitBreaker = require('opossum');
-const client = require('roi');
+const client = require('roi'); 
 
 const options = {
-    timeout: 3000,
+    timeout: 3000, 
     errorThresholdPercentage: 50, 
-    resetTimeout: 10000 
+    resetTimeout: 10000  
 };
 
 `
