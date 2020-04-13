@@ -98,13 +98,11 @@ npm run lint
 The Circuit Breaker helps the application to manage failures proactively, failing fast and/or providing fallback values when applicable.
 'Opossum' is a Node.js circuit breaker that executes asynchronous functions and monitors their execution status.
 
-`
-const circuitBreaker = require('opossum');
+`const circuitBreaker = require('opossum');
 const client = require('roi'); 
 
 const options = {
     timeout: 3000, 
     errorThresholdPercentage: 50, 
     resetTimeout: 10000  
-};
-`
+};`
