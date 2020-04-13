@@ -100,6 +100,4 @@ The Circuit Breaker helps the application to manage failures proactively, failin
 
 `
 const circuitBreaker = require('opossum');
-
-
 `
