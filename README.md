@@ -107,5 +107,4 @@ const options = {
     errorThresholdPercentage: 50, 
     resetTimeout: 10000  
 };
-
 `
