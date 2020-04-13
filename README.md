@@ -100,9 +100,11 @@ The Circuit Breaker helps the application to manage failures proactively, failin
 
 `
 const circuitBreaker = require('opossum');
+
 const options = {
-    timeout: 3000, // If the function takes longer than 3 seconds, trigger a failure
-    errorThresholdPercentage: 50, // When 50% of requests fail, trip the circuit
+    timeout: 3000, // If the function takes longer than 3 seconds, trigger a failure. 
+    errorThresholdPercentage: 50, // When 50% of requests fail, trip the circuit. 
     resetTimeout: 10000 // After 10 seconds, try again.
 };
+
 `
