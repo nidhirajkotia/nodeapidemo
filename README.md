@@ -99,8 +99,8 @@ The Circuit Breaker helps the application to manage failures proactively, failin
 'Opossum' is a Node.js circuit breaker that executes asynchronous functions and monitors their execution status.
 
 `
-const circuitBreaker = require('opossum'); <br />
-const options = {<br />
+const circuitBreaker = require('opossum');
+const options = {
     timeout: 3000, // If the function takes longer than 3 seconds, trigger a failure<br />
     errorThresholdPercentage: 50, // When 50% of requests fail, trip the circuit<br />
     resetTimeout: 10000 // After 10 seconds, try again.<br />
