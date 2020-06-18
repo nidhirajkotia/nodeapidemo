@@ -72,12 +72,18 @@ module.exports = {
     // Method to fetch all the flight_details using promise from db
     list: (req, res) => {
         // Run a single query on the database
+         const {
+            id,
+            flight_source,
+            flight_type
+        } = req.query;
+
         return new Promise((resolve, reject) => {
             pool
-                .query('select * from flight_details;')
+                .query('select * from flight_details WHERE id = $1 OR flight_source = $2 OR  flight_type = $3 ', [id, flight_source, flight_type])
                 .then(resp => {
                     resolve(resp.rows);
-                })
+                })  
                 .catch(err => {
                         reject(err);
                     }
@@ -96,10 +102,10 @@ module.exports = {
             pool
                 .query('DELETE FROM flight_details WHERE id = $1', [id])
                 .then(resp => {
-                    resolve(resp);
+                    resolve("Flight deleted succssfully");
                 })
                 .catch(err => {
-                    reject(err);
+                    reject("No flight found with this id");
                 })
         });
     }
