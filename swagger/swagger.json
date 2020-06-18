@@ -10,46 +10,60 @@
    ],
    "tags":[
       {
-         "name":"employee",
-         "description":"Operations about Employee"
+         "name":"Flight",
+         "description":"Operations about Flight"
       }
    ],
    "paths":{
-      "/create_employee":{
+      "/add_flight":{
          "post":{
             "tags":[
-               "employee"
+               "Flight"
             ],
-            "summary":"Create employee",
-            "operationId":"create_employee",
+            "summary":"View Flight",
+            "operationId":"add_flight",
             "parameters":[
                {
-                  "name":"emp_firstname",
+                  "name":"flight_source",
                   "in":"formData",
                   "required":true,
                   "type":"string"
                },
                {
-                  "name":"emp_lastname",
+                  "name":"flight_destination",
                   "in":"formData",
                   "type":"string",
                   "required":"true"
                },
                {
-                  "name":"emp_email",
+                  "name":"flight_departure_date",
                   "in":"formData",
                   "type":"string",
-                  "required":"true"
+                  "required":"true",
+                  "default": "2020-06-18 08:00:19"
                },
                {
-                  "name":"emp_gender",
+                  "name":"flight_arrival_date",
                   "in":"formData",
+                  "type":"string",
+                  "required":"true",
+                  "default": "2020-06-20 08:00:19"
+               },
+                {
+                  "name":"flight_capacity",
+                  "in":"formData",
+                  "required":true,
+                  "type":"number"
+               },
+                {
+                  "name":"flight_type",
+                  "in":"formData",
+                  "required":true,
                   "type":"string",
                   "enum":[
-                     "male",
-                     "female"
-                  ],
-                  "required":"true"
+                     "Domestic",
+                     "International"
+                  ]
                }
             ],
             "responses":{
@@ -57,18 +71,40 @@
                   "description":"Successful operation"
                },
                "408":{
-                  "description":"Error while adding employee"
+                  "description":"Error while adding flight"
                }
             }
          }
       },
-      "/view_employee":{
+      "/view_flight":{
          "get":{
             "tags":[
-               "employee"
+               "Flight"
             ],
-            "summary":"Get list of employees",            
-            "operationId":"view_employee",
+            "summary":"Get list of flights",            
+            "operationId":"view_flight",
+             "parameters":[
+                {
+                  "name":"id",
+                  "in":"formData",
+                  "type":"integer",
+                  "format": "int64"
+               },
+               {
+                  "name":"flight_source",
+                  "in":"formData",
+                  "type":"string"
+               },
+               {
+                  "name":"flight_type",
+                  "in":"formData",
+                  "type":"string",
+                  "enum":[
+                     "Domestic",
+                     "International"
+                  ]
+               }
+            ],
             "responses":{
                "200":{
                   "description":"Successful operation"
@@ -79,16 +115,16 @@
             }
          }
       },
-      "/delete_employee":{
+      "/delete_flight":{
          "delete":{
             "tags":[
-               "employee"
+               "Flight"
             ],
-            "summary":"Delete employee by ID",            
-            "operationId":"delete_employee",
+            "summary":"Delete flight by ID",            
+            "operationId":"delete_flight",
             "parameters":[
                {
-                  "name":"emp_id",
+                  "name":"id",
                   "in":"formData",
                   "required":true,
                   "type":"integer",
@@ -100,7 +136,7 @@
                   "description":"Invalid ID"
                },
                "404":{
-                  "description":"Employee not found"
+                  "description":"Flight not found"
                }
             }
          }
