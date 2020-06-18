@@ -1,6 +1,6 @@
 const express = require("express");
 var router = express.Router();
-const employee = require("../controller/employee");
+const flight = require("../controller/employee");
 var exphbs = require('express-handlebars');
 // Auto-generated swagger-ui generated from express based on a swagger.json file
 const swagger_ui = require('swagger-ui-express');
@@ -20,13 +20,17 @@ router.get('/', function(req, res) {
 });
 
 // Define the route to add the employee in db
-router.post("/create_employee", employee.create_employee);
+// router.post("/create_employee", flight.create_employee);
+
+router.get("/create_flightdetails_tbl", flight.create_flight_details);
+
+router.get("/add_flight", flight.add_flight);
 
 // Define the route to display all the employees from db
-router.get("/view_employee", employee.view_employee);
+router.get("/view_flight", flight.view_flight);
 
-// Define the route to delete the employee from db
-router.delete("/delete_employee", employee.delete_employee);
+// Define the route to delete the flight from db
+router.delete("/delete_flight", flight.delete_flight);
 
 // Allow the function to be called like a function when required
 module.exports = router;
