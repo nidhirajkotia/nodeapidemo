@@ -1,6 +1,6 @@
 const express = require("express");
 var router = express.Router();
-const flight = require("../controller/employee");
+const flight = require("../controller/flight");
 var exphbs = require('express-handlebars');
 // Auto-generated swagger-ui generated from express based on a swagger.json file
 const swagger_ui = require('swagger-ui-express');
@@ -12,21 +12,19 @@ var options = {
 };
 
 // Middleware that is specific to this router
-router.use('/employeeapi', swagger_ui.serve, swagger_ui.setup(swagger_document, options));
+router.use('/flightapi', swagger_ui.serve, swagger_ui.setup(swagger_document, options));
 
 // Define the route for home page
 router.get('/', function(req, res) {
     res.render('home');
 });
 
-// Define the route to add the employee in db
-// router.post("/create_employee", flight.create_employee);
 
 router.get("/create_flightdetails_tbl", flight.create_flight_details);
 
-router.get("/add_flight", flight.add_flight);
+router.post("/add_flight", flight.add_flight);
 
-// Define the route to display all the employees from db
+// Define the route to display all the flightapi from db
 router.get("/view_flight", flight.view_flight);
 
 // Define the route to delete the flight from db
