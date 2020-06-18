@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "mocha mocha/employeetest.js && node index.js",
+    "start": "node index.js",
     "lint": "eslint \"**/*.{js}\""
   },
   "keywords": [],
