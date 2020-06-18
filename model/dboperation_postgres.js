@@ -2,6 +2,7 @@
 const pg = require('pg');
 const Pool = require('pg').Pool;
 var Promise = require('promise');
+require('dotenv').config();
 
 pg.defaults.ssl = true;
 
@@ -14,19 +15,50 @@ const pool = new Pool({
     port: process.env.DB_PORT,
 });
 
+console.log(process.env.DB_USER);
 module.exports = {
 
-    // Method to add employee using promise in db
+
+    // Method to create flight_details using promise in db
+    create_tbl: (req, res) => {
+        pool.query('CREATE TABLE flight_details( \
+                id SERIAL PRIMARY KEY, \
+                flight_source VARCHAR(20) NOT NULL, \
+                flight_destination VARCHAR(20) NOT NULL, \
+                flight_departure_date TIMESTAMP NOT NULL, \
+                flight_arrival_date TIMESTAMP NOT NULL, \
+                flight_capacity integer NOT NULL, \
+                flight_type VARCHAR(10) NOT NULL \
+              );', (error, results) => {
+            if (error) {
+                console.log('Inside error..........');
+                          return res.status(200).send("fail");
+            }
+            console.log('Inside success..........');
+            return res.status(200).send("success");
+        })
+    },
+
+    // Method to add flight_details using promise in db
+
     add: (req, res) => {
         const {
-            emp_firstname,
-            emp_lastname,
-            emp_email,
-            emp_gender
+            flight_source,
+            flight_destination,
+            flight_departure_date,
+            flight_arrival_date,
+            flight_capacity,
+            flight_type
         } = req.body;
         return new Promise((resolve, reject) => {
             pool
-                .query('INSERT INTO employee (firstname, lastname, email, gender) VALUES ($1, $2, $3, $4)', [emp_firstname, emp_lastname, emp_email, emp_gender])
+                .query('INSERT INTO flight_details (flight_source, flight_destination, flight_departure_date, flight_arrival_date, flight_capacity, flight_type) VALUES ($1, $2, $3, $4, $5, $6)', 
+                    [flight_source,
+            flight_destination,
+            flight_departure_date,
+            flight_arrival_date,
+            flight_capacity,
+            flight_type])
                 .then(resp => {
                     resolve(resp);
                 })
@@ -37,12 +69,12 @@ module.exports = {
         });
     },
 
-    // Method to fetch all the employess using promise from db
+    // Method to fetch all the flight_details using promise from db
     list: (req, res) => {
         // Run a single query on the database
         return new Promise((resolve, reject) => {
             pool
-                .query('select * from employee;')
+                .query('select * from flight_details;')
                 .then(resp => {
                     resolve(resp.rows);
                 })
@@ -54,15 +86,15 @@ module.exports = {
         });
     },
 
-    // Method to delete employee using promise in db
+    // Method to delete flight_details using promise in db
     delete: (req, res) => {
         const {
-            emp_id
+            id
         } = req.body;
 
         return new Promise((resolve, reject) => {
             pool
-                .query('DELETE FROM employee WHERE id = $1', [emp_id])
+                .query('DELETE FROM flight_details WHERE id = $1', [id])
                 .then(resp => {
                     resolve(resp);
                 })
