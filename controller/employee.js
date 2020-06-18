@@ -17,7 +17,7 @@ function call_func(dynamicobj) {
     });
 
     circuit.on('success', (result) => {
-        console.log("success circuit...")
+        console.log("success circuit...");
     });
 
     circuit.on('timeout', (result) => {
@@ -29,44 +29,31 @@ function call_func(dynamicobj) {
     });
 
     circuit.on('close', (result) => {
-        console.log("close circuit...")
+        console.log("close circuit...");
     });
     return circuit;
 
 }
 module.exports = {
-    // Method to add employee in db
-    create_employee: (req, res) => {
-        var breaker = call_func(db.add);
-        breaker.fire(req, res).then(function(resp) {
-                res.status(200).send("Employee added successfully")
-            })
-            .catch(function(err) {
-                res.status(408).send("Error while adding employee")
-            });
+
+    // Method to create flight table in db
+    create_flight_details: (req, res) => {        
+            db.create_tbl(req, res);
     },
 
-    // Method to fetch all the employess from db
-    view_employee: (req, res) => {
-        var breaker = call_func(db.list);
-        breaker.fire(req, res).then(function(resp) {
-                res.status(200).send(resp);
-            })
-            .catch(function(err) {
-                res.status(408).send("Error while fetching employee");
-            })
+    // Method to add flight in db
+    add_flight: (req, res) => {
+        db.add(req, res);        
     },
 
-    // Method to delete employee by ID in db
-    delete_employee: (req, res) => {
-        var breaker = call_func(db.delete);
-        breaker.fire(req, res).then(function(resp) {
-                res.status(200).send("Employee deleted successfully");
-            })
-            .catch(function(err) {
-                res.status(408).send("Error while deleting employee");
-            })
+    // Method to fetch all the flights from db
+    view_flight: (req, res) => {
+        db.list(req, res);        
+    },
 
+    // Method to delete flight by ID in db
+    delete_flight: (req, res) => {
+        db.delete(req, res);        
     }
 
 };
